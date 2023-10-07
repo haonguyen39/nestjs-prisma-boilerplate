@@ -30,6 +30,25 @@ export class UserService {
       orderBy,
     });
   }
+
+  async findUserByEmailOrUsername(
+    email: string,
+    username: string,
+  ): Promise<User | null> {
+    return this.prisma.user.findFirst({
+      where: {
+        OR: [
+          {
+            email,
+          },
+          {
+            username,
+          },
+        ],
+      },
+    });
+  }
+
   async createUser(data: Prisma.UserCreateInput): Promise<User> {
     return this.prisma.user.create({
       data,

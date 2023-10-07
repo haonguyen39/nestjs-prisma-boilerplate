@@ -5,5 +5,6 @@ const Env = {
   PRODUCTION: 'production',
   DEVELOPMENT: 'development',
 };
-
-export { Env };
+const ROLES_KEY = 'roles';
+const IS_PUBLIC_KEY = 'isPublic';
+export { Env, ROLES_KEY, IS_PUBLIC_KEY };
