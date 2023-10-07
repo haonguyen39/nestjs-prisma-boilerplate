@@ -3,6 +3,8 @@ import { AppController } from './app.controller';
 import { ConfigModule } from '@nestjs/config';
 import { configuration } from '@/common/configs';
 import * as dotenv from 'dotenv';
+import { AuthModule } from '@/api/auth/auth.module';
+import { PrismaModule } from '@/database/prisma.module';
 
 dotenv.config();
 
@@ -11,6 +13,8 @@ dotenv.config();
     ConfigModule.forRoot({
       load: [configuration],
     }),
+    PrismaModule,
+    AuthModule,
   ],
   controllers: [AppController],
 })
